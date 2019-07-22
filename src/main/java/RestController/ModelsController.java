@@ -3,11 +3,7 @@ package RestController;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import smartphones.Models;
 
 import javax.validation.Valid;
@@ -44,6 +40,6 @@ public class ModelsController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void deleteModel(@PathVariable ObjectId id) {
-        repository.delete(repository.findBy_id(id));
+        repository.delete(repository.findById(id));
     }
 }
